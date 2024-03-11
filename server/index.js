@@ -3,9 +3,12 @@ const mongoose = require('mongoose');
 const Book = require('./model/usermodel.js');
 const bodyParser = require('body-parser');
 const cors = require('cors'); 
+require('dotenv').config()
+
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://geek:sIp70koLDGGHDEzS@mern.mghbiad.mongodb.net/?retryWrites=true&w=majority&appName=Mern', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URL
+  , { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
